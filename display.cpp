@@ -9,6 +9,7 @@
 #include "display_func.cpp"
 extern "C" {
 	#include "button.c"
+	#include "ADA1893.c"
 }
 
 
@@ -16,28 +17,29 @@ int main(void) {
 	// Setup functions
 	input_setup();
 	if(!Setup())return -1;
+	ada1893_setup();
 
 	// Declare variables
-	float temp_read, alt_read, tMax, tMin, aMin, aMax;
-	char temp[30], alt[30], temp_min[30], temp_max[30], alt_min[30], alt_max[30];
+	float temp_read, pres_read, tMax, tMin, pMin, pMax;
+	char temp[30], pres[30], temp_min[30], temp_max[30], pres_min[30], pres_max[30];
 
 	// Read in current values
-	temp_read = 20;
-	alt_read = 54.31;
+	temp_read = read_temp();
+	pres_read = read_pres();
 	tMax = 73.32;
 	tMin = 68.1;
-	aMin = 50.12;
-	aMax = 55.69;
+	pMin = 50.12;
+	pMax = 55.69;
 
 	// Convert readings to string
 	std::sprintf(temp, "%.1f F", temp_read);
-	std::sprintf(alt, "%.1f M", alt_read);
+	std::sprintf(pres, "%.1f kPa", pres_read);
 
  	std::sprintf(temp_min, "Min: %.1f F", tMin);
 	std::sprintf(temp_max, "Max: %.1f F", tMax);
-        std::sprintf(alt_min, "Min: %.1f M", aMin);
-        std::sprintf(alt_max, "Max: %.1f M", aMax);
-	Reading_Screen1(temp, alt, temp_min, temp_max, alt_min, alt_max);
+        std::sprintf(pres_min, "Min: %.1f kPa", pMin);
+        std::sprintf(pres_max, "Max: %.1f kPa", pMax);
+	Reading_Screen1(temp, pres, temp_min, temp_max, pres_min, pres_max);
 
 	int i;
 	while(1){
