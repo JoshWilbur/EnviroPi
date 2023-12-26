@@ -17,7 +17,33 @@ ST7735_TFT myTFT;
 // Static declaration of functions
 int8_t Setup(void);
 void Test_Text(void);
+void Reading_Screen1(char* temp, char* alt, char* temp_min, char* temp_max, char* alt_min, char* alt_max);
 void Shutdown_Display(void);
+
+void Reading_Screen1(char* temp, char* alt, char* temp_min, char* temp_max, char* alt_min, char* alt_max){
+        myTFT.TFTfillScreen(ST7735_GREY);
+	myTFT.TFTFontNum(myTFT.TFTFont_Default);
+        myTFT.TFTsetRotation(myTFT.TFT_Degrees_90); // Rotate screen so its in landscape mode
+	myTFT.TFTdrawFastHLine(0, 63, 160, ST7735_GREEN);
+	myTFT.TFTdrawFastHLine(0, 64, 160, ST7735_GREEN);
+	myTFT.TFTdrawFastHLine(0, 65, 160, ST7735_GREEN);
+	myTFT.TFTfillRoundRect(5, 8, 150, 50, 5, ST7735_BLACK);
+	myTFT.TFTfillRoundRect(5, 70, 150, 50, 5, ST7735_BLACK);
+
+	char temp_str[] = "Temperature";
+	myTFT.TFTdrawText(45, 10, temp_str, ST7735_WHITE, ST7735_BLACK, 1);
+	myTFT.TFTdrawText(15, 40, temp, ST7735_WHITE, ST7735_BLACK, 2);
+	myTFT.TFTdrawText(80, 20, temp_min, ST7735_WHITE, ST7735_BLACK, 1);
+	myTFT.TFTdrawText(80, 30, temp_max, ST7735_WHITE, ST7735_BLACK, 1);
+
+        char alt_str[] = "Altitude";
+        myTFT.TFTdrawText(50, 75, alt_str, ST7735_WHITE, ST7735_BLACK, 1);
+	myTFT.TFTdrawText(15, 103, alt, ST7735_WHITE, ST7735_BLACK, 2);
+	myTFT.TFTdrawText(80, 85, alt_min, ST7735_WHITE, ST7735_BLACK, 1);
+        myTFT.TFTdrawText(80, 95, alt_max, ST7735_WHITE, ST7735_BLACK, 1);
+
+        std::this_thread::sleep_for(std::chrono::seconds(7)); // Display for three seconds before ending function
+}
 
 // Setup function from TFT library
 int8_t Setup(void)

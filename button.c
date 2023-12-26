@@ -27,7 +27,7 @@ void input_setup(void){
         memset(&req, 0, sizeof(struct gpiohandle_request));
         req.flags = GPIOHANDLE_REQUEST_INPUT;
         req.lines = 1;
-        req.lineoffsets[0] = 5; // set to gpio5
+        req.lineoffsets[0] = 27; // set to gpio27
         req.default_values[0] = 0;
         strcpy(req.consumer_label, "ECE471");
         rv = ioctl(fd, GPIO_GET_LINEHANDLE_IOCTL, &req);
@@ -51,5 +51,5 @@ int read_input(void){
 
 	// GPIO read result in data.values[0]
         int result = data.values[0];
-	return !(result);
+	return result;
 }
