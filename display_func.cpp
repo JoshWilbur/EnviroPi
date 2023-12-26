@@ -33,14 +33,14 @@ void Reading_Screen1(char* temp, char* pres, char* temp_min, char* temp_max, cha
 	char temp_str[] = "Temperature";
 	myTFT.TFTdrawText(45, 10, temp_str, ST7735_WHITE, ST7735_BLACK, 1);
 	myTFT.TFTdrawText(15, 40, temp, ST7735_WHITE, ST7735_BLACK, 2);
-	myTFT.TFTdrawText(80, 20, temp_min, ST7735_WHITE, ST7735_BLACK, 1);
-	myTFT.TFTdrawText(80, 30, temp_max, ST7735_WHITE, ST7735_BLACK, 1);
+	myTFT.TFTdrawText(72, 20, temp_min, ST7735_WHITE, ST7735_BLACK, 1);
+	myTFT.TFTdrawText(72, 30, temp_max, ST7735_WHITE, ST7735_BLACK, 1);
 
         char pres_str[] = "Pressure";
         myTFT.TFTdrawText(50, 75, pres_str, ST7735_WHITE, ST7735_BLACK, 1);
 	myTFT.TFTdrawText(15, 103, pres, ST7735_WHITE, ST7735_BLACK, 2);
-	myTFT.TFTdrawText(80, 85, pres_min, ST7735_WHITE, ST7735_BLACK, 1);
-        myTFT.TFTdrawText(80, 95, pres_max, ST7735_WHITE, ST7735_BLACK, 1);
+	myTFT.TFTdrawText(72, 85, pres_min, ST7735_WHITE, ST7735_BLACK, 1);
+        myTFT.TFTdrawText(72, 95, pres_max, ST7735_WHITE, ST7735_BLACK, 1);
 
         std::this_thread::sleep_for(std::chrono::seconds(7)); // Display for three seconds before ending function
 }

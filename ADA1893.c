@@ -72,8 +72,9 @@ float read_temp(){
 
 	// Obtain temperature reading in celsius (12 bit, ignore last 4 bits of data_in[5])
 	int tempC = ((data_in[4] << 8) | (data_in[5] & 0xF0));
-	float tempOut = tempC / 256.0;
-	return tempOut;
+	float temp = tempC / 256.0;
+	float tempF = (temp * (9.0 / 5.0)) + 32;
+	return tempF;
 }
 
 // This function reads and processes the pressure in kPa (use 1 for setup function argument)
