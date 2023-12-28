@@ -8,14 +8,12 @@
 
 #include "display_func.cpp"
 extern "C" {
-	#include "button.c"
 	#include "ADA1893.c"
 }
 
 
 int main(void) {
 	// Setup functions
-	input_setup();
 	if(!Setup())return -1;
 	ada1893_setup();
 
