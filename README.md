@@ -1,6 +1,8 @@
 # EnviroPi
 EnviroPi is a continuation of my Raspberry Pi weather station class project. Previous code was cleaned up and the display output was redone to improve functionality. This project is a work in progress but is in a functional state. 
 
+![ ig ](https://github.com/JoshWilbur/EnviroPi/blob/main/EnviroPi_Dec_2023.jpg)
+
 # Hardware
 * Raspberry Pi 0W
 * ADA1893 temperature/pressure sensor
