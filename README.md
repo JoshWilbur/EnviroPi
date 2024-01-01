@@ -13,4 +13,4 @@ EnviroPi is a continuation of my Raspberry Pi weather station class project. Pre
 As stated above, this is a continuation of an existing project. The code is modified to fix some bugs but the overall structure is similar. A library, authored by Gavin Lyons, was used to interface with the TFT display.
 
 # Future Work 
-Currently, the device only uses one sensor. Additional sensors to capture more environmental statistics will be added eventually. A 3D printed case and PCB for the components will be made once more improvements are done.
+Currently, the device only uses one sensor. Additional sensors to capture more environmental statistics will be added eventually. A 3D printed case and PCB for the components will be made once more improvements are done. Graphing will be added to show trends in readings.
